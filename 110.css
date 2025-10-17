@@ -1,0 +1,754 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #efeae5;
+  color: #222;
+}
+
+/* Header */
+.site-header {
+  background: #000;
+  color: #fff;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ===== Mobile Slide Menu ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 20%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  transition: left 0.4s ease;
+  padding-top: 10px;
+  z-index: 99;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 30px;
+}
+
+.mobile-menu li {
+  border-bottom: 1px solid #444;
+  padding: 18px 0;
+}
+
+.mobile-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mobile-menu a span {
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+/* hiệu ứng mở */
+.header-right.active .mobile-menu {
+  left: 0;
+}
+
+/* hamburger */
+/* Menu (hamburger) */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 10;
+  transition: opacity 0.3s ease, top 0.3s ease; /* thêm để ẩn/hiện mượt */
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: white;
+}
+/* Logo */
+.header-logo {
+  font-weight: 800;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: center;
+  flex: 1;
+  padding-left: 450px;
+    margin-top: -30px;
+}
+
+/* Right side */
+.header-r {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Language box */
+.lang-box {
+  position: relative;
+  text-align: center;
+}
+.lang-globe svg {
+  fill: #fff;
+  cursor: pointer;
+}
+.lang-label {
+  font-size: 12px;
+  color: #fff;
+}
+.lang-popup {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px;
+  min-width: 120px;
+  z-index: 100;
+}
+.lang-popup button {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+.lang-popup button:hover {
+  background: #333;
+}
+
+/* Reserve button */
+.reserve-btn {
+  background: white;
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: url("./caicau.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 40px;           /* căn trái, bạn chỉnh khoảng cách */
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 0 20px;
+}
+.hero-overlay h1 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.2;
+}
+.hero-overlay h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+/* --- What Section --- */
+.what-section {
+  padding: 80px 20px;
+}
+
+.what-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* mỗi bên 50% */
+  gap: 40px;
+  align-items: start;
+}
+
+/* Cột trái */
+.what-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 20px; /* dịch chữ sang phải 1 chút */
+}
+
+.what-left h2 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 12px;
+}
+
+.sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Cột phải */
+.what-right {
+  padding-left: 20px; /* dịch chữ sang phải để cân đối */
+}
+
+.what-right p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #333;
+  margin: 0 0 20px;
+}
+
+.sub-text {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .what-inner {
+    grid-template-columns: 1fr; /* thu về 1 cột trên màn nhỏ */
+  }
+
+  .what-left {
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .what-right {
+    padding-left: 0;
+  }
+}
+/* --- Program Section --- */
+.program-section {
+  padding: 100px 20px;
+}
+
+.program-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.program-header {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.program-header .program-decor {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+}
+.program-text {
+  position: absolute;
+  left: 40px;          
+  transform: translateY(-50%);
+  color: #000;
+}
+
+.program-header h2 {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.program-header .program-sub {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 8px;
+  color: #333;
+}
+
+/* Số + tiêu đề chính giữa */
+.program-header-center {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 100px;
+}
+.program-number {
+  font-size: 50px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1;
+}
+.program-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 10px 0 0;
+  color: #000;
+}
+.program-title .sub-en {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 10px 0 0;
+  color: #000;
+}
+/* Ảnh + caption */
+.program-images {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.program-card {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.program-card img {
+  padding: right 100px;
+  width: 80%;
+  height: 270px;
+  object-fit: cover;
+}
+.program-caption {
+  padding: 15px;
+}
+.caption-title {
+  font-size: 17px;
+  font-weight: 700; /* in đậm */
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: #000;
+}
+.program-caption p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .program-images {
+    flex-direction: column;
+  }
+  .program-card img {
+    height: auto;
+  }
+}
+/* --- Environment Section --- */
+.environment-section {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.environment-bg {
+  position: relative;
+  width: 100%;
+  height: 400px; /* chiều cao hero */
+  overflow: hidden;
+}
+
+.environment-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.environment-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.environment-overlay h2 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.environment-overlay .learn-more {
+  align-self: flex-end;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.environment-overlay .learn-more:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .environment-bg {
+    height: 250px;
+  }
+  .environment-overlay {
+    padding: 20px;
+  }
+  .environment-overlay h2 {
+    font-size: 28px;
+  }
+}
+
+/* --- News Section --- */
+.news-section {
+  padding: 80px 20px;
+}
+
+.news-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.news-inner h2 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+}
+
+.news-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  margin: 10px 0 40px;
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.news-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.news-item p {
+  font-size: 15px;
+  color: #000;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .news-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .news-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Access Section --- */
+.access-section {
+  background: #555;
+  color: #fff;
+  padding: 60px 20px 80px;
+  position: relative;
+}
+
+.access-section .wave-top {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: -1px;
+}
+
+.access-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.access-inner h2 {
+  font-size: 40px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.access-sub {
+  font-size: 16px;
+  margin: 10px 0 40px;
+  color: #ddd;
+}
+
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.access-col h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.access-col p {
+  font-size: 14px;
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+
+.access-col .map-link {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .access-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.access-section {
+    position: relative;
+    color: #fff;
+    padding: 150px 0 50px;
+
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C250,100 250,0 500,50 S750,100 1000,50 L1000,200 L0,200 Z' fill='%23444444'/%3E%3C/svg%3E") no-repeat center bottom / cover;
+}
+
+.access-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.access-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.access-subtitle {
+    font-size: 1em;
+    margin-bottom: 40px;
+}
+
+.access-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.access-column {
+    flex-basis: calc(33.333% - 20px);
+    margin-right: 20px;
+}
+
+.access-column:last-child {
+    margin-right: 0;
+}
+
+.access-column h3 {
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.access-column p {
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.access-column a {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 0.9em;
+}
+
+
+/* Reservation Section */
+.reservation {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.reservation h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.reservation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.reservation-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #333;
+}
+@media (max-width: 900px) {
+  .reservation-buttons {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+/* Footer */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 40px 30px;
+  font-size: 14px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Menu trái */
+.footer-menu {
+  display: flex;
+  gap: 60px;
+}
+.footer-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.footer-menu li:hover {
+  opacity: 0.7;
+}
+
+/* Nút 予約する */
+.btn-footer-reserve {
+  display: inline-block;
+  padding: 8px 28px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+.btn-footer-reserve:hover {
+  background: #ddd;
+}
+
+/* Logo + Social bên phải */
+.footer-brand {
+  text-align: right;
+}
+.lang-switch {
+  margin-bottom: 20px;
+}
+.lang-switch a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 13px;
+}
+.lang-switch a:hover {
+  opacity: 0.7;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.footer-socials a {
+  color: #fff;
+    font-size: 20px;
+    margin-left: 15px;
+
+}
+.footer-social img:hover {
+  opacity: 0.7;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-top {
+    flex-direction: column;
+    text-align: left;
+  }
+  .footer-brand {
+    text-align: left;
+    margin-top: 30px;
+  }
+}
